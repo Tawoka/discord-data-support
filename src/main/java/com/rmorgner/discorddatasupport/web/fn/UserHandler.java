@@ -39,7 +39,7 @@ public class UserHandler {
   public Mono<ServerResponse> saveUser(ServerRequest request){
     return userService.saveUser(
         request.bodyToMono(UserDTO.class)
-            .doOnNext(this::validate)
+//            .doOnNext(this::validate)
     ).flatMap(userDTO -> ServerResponse.created(
         UriComponentsBuilder.fromPath(UserRestConstants.PATH_WITH_ID.getValue())
             .build(userDTO.getId())

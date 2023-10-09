@@ -13,11 +13,10 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.*
 @RequiredArgsConstructor
 public class UserRouter {
 
-  private UserHandler userHandler;
+  private final UserHandler userHandler;
 
   @Bean
   public RouterFunction<ServerResponse> userRoutes() {
-
     return route()
         .GET(UserRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON), userHandler::getAllUserIds)
         .POST(UserRestConstants.PATH_WITH_ID.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON), userHandler::saveUser)
