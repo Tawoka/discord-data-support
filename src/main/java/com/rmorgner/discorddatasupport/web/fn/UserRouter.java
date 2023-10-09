@@ -19,7 +19,7 @@ public class UserRouter {
   public RouterFunction<ServerResponse> userRoutes() {
     return route()
         .GET(UserRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON), userHandler::getAllUserIds)
-        .POST(UserRestConstants.PATH_WITH_ID.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON), userHandler::saveUser)
+        .POST(UserRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON), userHandler::saveUser)
         .build();
 
   }

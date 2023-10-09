@@ -12,6 +12,8 @@ import org.springframework.web.util.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class UserHandler {
@@ -30,10 +32,9 @@ public class UserHandler {
 
   public Mono<ServerResponse> getAllUserIds(ServerRequest request){
     Flux<String> flux;
-
     flux = userService.getAllUserIds();
-
-    return ServerResponse.ok().body(flux, String.class);
+    Mono<List<String>> data = flux.collectList();
+    return ServerResponse.ok().body(data, List.class);
   }
 
   public Mono<ServerResponse> saveUser(ServerRequest request){
