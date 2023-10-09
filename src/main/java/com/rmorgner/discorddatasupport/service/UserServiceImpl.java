@@ -13,8 +13,8 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-  private UserRepository userRepository;
-  private UserMapper userMapper;
+  private final UserRepository userRepository;
+  private final UserMapper userMapper;
 
   @Override
   public Flux<String> getAllUserIds() {

@@ -2,9 +2,9 @@ package com.rmorgner.discorddatasupport.mappers;
 
 import com.rmorgner.discorddatasupport.domain.User;
 import com.rmorgner.discorddatasupport.model.UserDTO;
-import org.springframework.core.annotation.*;
-import reactor.core.publisher.Mono;
+import org.springframework.stereotype.*;
 
+@Component
 public class UserMapperImpl implements UserMapper {
 
   @Override
