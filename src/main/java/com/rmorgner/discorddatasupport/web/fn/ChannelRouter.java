@@ -19,6 +19,8 @@ public class ChannelRouter {
     return route()
         .GET(ChannelRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON),
             channelHandler::getAllChannelIds)
+        .POST(ChannelRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON),
+            channelHandler::saveChannel)
         .build();
   }
 
