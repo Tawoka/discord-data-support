@@ -18,8 +18,10 @@ public class UserRouter {
   @Bean
   public RouterFunction<ServerResponse> userRoutes() {
     return route()
-        .GET(UserRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON), userHandler::getAllUserIds)
-        .POST(UserRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON), userHandler::saveUser)
+        .GET(UserRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON),
+            userHandler::getAllUserIds)
+        .POST(UserRestConstants.PATH.getValue(), RequestPredicates.accept(MediaType.APPLICATION_JSON),
+            userHandler::saveUser)
         .build();
 
   }

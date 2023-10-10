@@ -1,5 +1,8 @@
 package com.rmorgner.discorddatasupport.constants;
 
+import lombok.Getter;
+
+@Getter
 public enum UserRestConstants {
 
   ID("userId"),
@@ -11,9 +14,6 @@ public enum UserRestConstants {
     this.value = value;
   }
 
-  private String value;
+  private final String value;
 
-  public String getValue() {
-    return value;
-  }
 }
